@@ -1,0 +1,40 @@
+# Overview of Computer Networks
+
+## What is a network?
+
+- A group of connected devices that can communicate and share resources.
+- Connections can be wired or wireless.
+- Examples: phones, laptops and a smart TV connected to a home network.
+
+## Main network types
+
+- LAN (Local Area Network):
+  - Covers a limited area, such as a home, office or building.
+- WAN (Wide Area Network):
+  - Connects networks across larger geographical areas.
+- The internet is a global network of interconnected networks.
+
+## Why networks matter
+
+- Communication: exchange data between devices.
+- Resource sharing: access shared printers, files and services.
+- Internet access: browse websites, stream content and communicate online.
+- Application communication:
+  - A client sends a request to a server.
+  - The server processes it and returns a response.
+  - Example: a browser requesting a web page.
+  - Not every application requires a network; local applications can work offline.
+
+## DevOps relevance
+
+- Remote access: connect to servers, for example using SSH.
+- Deployments: transfer application code, images and artifacts to target systems.
+- Infrastructure management: manage systems and collect monitoring data.
+- Troubleshooting: identify connectivity problems between services.
+- Performance and scaling: understand latency, bandwidth and network bottlenecks.
+
+## What to understand
+
+- Networks enable communication between systems.
+- LANs cover local areas; WANs connect networks over larger distances.
+- Working connectivity is essential for deploying, operating and troubleshooting distributed applications.
