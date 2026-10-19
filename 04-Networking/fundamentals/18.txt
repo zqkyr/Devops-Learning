@@ -1,0 +1,87 @@
+# 18-network-debugging-tools-nslookup-and-dig
+
+## Purpose
+
+- Query DNS records and troubleshoot name-resolution problems.
+- A successful lookup does not prove the destination service is reachable.
+- Tool availability varies; installation may be required.
+
+## nslookup
+
+- A straightforward tool for querying DNS.
+
+```bash
+nslookup youtube.com
+```
+
+### Reading the output
+
+- Server / Address:
+  - The DNS server queried and its address.
+  - May be a router, local resolver or external DNS service.
+  - It is not the route taken by your web traffic.
+- Port 53: the standard DNS service port.
+- Non-authoritative answer:
+  - The responding server is not authoritative for the queried name.
+  - Does not necessarily mean the answer was already cached; the resolver may have just fetched it.
+- Name / Address:
+  - The name resolved and the returned IP address or addresses.
+
+## dig
+
+- Stands for Domain Information Groper.
+- Provides detailed DNS responses.
+
+```bash
+dig youtube.com
+```
+
+- Defaults to querying A records.
+
+### Reading the output
+
+- QUESTION SECTION: the name, class and record type requested.
+- ANSWER SECTION: returned records, including TTL, type and data.
+- SERVER: the DNS server that answered the query.
+- Query time: time taken for the DNS query, not website loading time.
+- Status:
+  - `NOERROR`: query completed without a DNS error; the requested record may still be absent.
+  - `NXDOMAIN`: the queried name does not exist.
+  - `SERVFAIL`: the server could not complete the lookup.
+
+## Useful commands
+
+```bash
+# Concise A-record output
+dig +short youtube.com
+
+# Find authoritative name servers
+dig +short NS youtube.com
+
+# Query other record types
+dig AAAA youtube.com
+dig MX youtube.com
+dig TXT youtube.com
+
+# Ask a specific resolver
+dig @1.1.1.1 youtube.com
+nslookup youtube.com 1.1.1.1
+```
+
+- NS records identify DNS name servers, not website hosting servers.
+- Use full output when troubleshooting; `+short` hides status and other diagnostic details.
+- These tools query DNS; they do not normally consult `/etc/hosts`.
+
+## Practice
+
+1. Run `nslookup youtube.com`.
+   - Identify the queried DNS server and returned addresses.
+2. Run `dig youtube.com`.
+   - Identify the question, answer, status and responding server.
+
+## What to remember
+
+- `nslookup`: straightforward DNS queries.
+- `dig`: detailed DNS inspection.
+- Check which server answered, which record type was requested and what response came back.
+- Exact command options can be looked up.
