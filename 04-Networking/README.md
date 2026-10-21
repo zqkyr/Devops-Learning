@@ -11,4 +11,4 @@ This folder contains my networking study notes and reference documents, covering
 - Firewalls and network security
 - Network troubleshooting and useful CLI tools
 
-I will also be uploading my practical networking work, including exercises, configurations and troubleshooting examples.
+I have also uploaded my practical networking work, including exercises, configurations and troubleshooting examples.
